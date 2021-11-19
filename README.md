@@ -16,3 +16,8 @@
 
 - Propriété contentEditable
 <https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Functions/Default_parameters>
+
+## Autres liens
+
+- Librairie weather icons
+<https://erikflowers.github.io/weather-icons/>
