@@ -15,29 +15,23 @@ const weatherIcons = {
 function capitalize(str){
     return str[0].toUpperCase() + str.slice(1);
 }
-// AJAX Avec Fetch
-function main(){
+// Async / Await => permet de rendre une promesse synchrone
+async function main(){
     // 1. Choper l'adresse IP du PC qui ouvre la page : https://api.ipify.org?format=json
-    fetch('https://api.ipify.org?format=json')
+    const ip = await fetch('https://api.ipify.org?format=json')
         .then(resultat => resultat.json())
-        .then(json => {
-            const ip = json.ip;
-            // 2. Choper la ville grâce à l'adresse IP : http://ip-api.com/json/adresseDuMec
-            fetch('http://ip-api.com/json/' + ip)
-                .then(resultat => resultat.json())
-                .then(json => {
-                    const ville = json.city;
-                    console.log(ville);
-
-                    fetch('http://api.openweathermap.org/data/2.5/weather?q=' + ville + '&appid=c0d4a23f973c3521df89aa75a2c37ac1&lang=fr&units=metric')
-                        .then(resultat => resultat.json())
-                        .then(json =>{
-                            console.log(json);
-                        })
-                })
-        })
+        .then(json => json.ip)
+    // 2. Choper la ville grâce à l'adresse IP : http://ip-api.com/json/adresseDuMec
+    const ville = await fetch('http://ip-api.com/json/' + ip)
+        .then(resultat => resultat.json())
+        .then(json => json.city)
     // 3. Choper les infos météo grâce à la ville : http://api.openweathermap.org/data/2.5/weather?q=VilleDuMec&appid=c0d4a23f973c3521df89aa75a2c37ac1&lang=fr&units=metric
+    const meteo = await fetch('http://api.openweathermap.org/data/2.5/weather?q=' + ville + '&appid=c0d4a23f973c3521df89aa75a2c37ac1&lang=fr&units=metric')
+        .then(resultat => resultat.json())
+        .then(json => json)
 
+    console.log(meteo);
+        
     // 4. Afficher les informations sur la page
 }
 
