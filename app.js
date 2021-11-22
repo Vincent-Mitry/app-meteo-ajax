@@ -31,8 +31,25 @@ async function main(){
         .then(json => json)
 
     console.log(meteo);
-        
     // 4. Afficher les informations sur la page
+    displayWeatherInfos(meteo);
+}
+
+/**
+ * Affichage des données météo sur le DOM à partir de l'objet météo passé en paramètre (data)
+ * @param {object} data 
+ */
+function displayWeatherInfos(data){
+    const name = data.name;
+    const temperature = data.main.temp;
+    const conditions = data.weather[0].main;
+    const description = data.weather[0].description;
+
+    document.querySelector('#ville').textContent = name;
+    document.querySelector('#temperature').textContent = Math.round(temperature);
+    document.querySelector('#conditions').textContent = capitalize(description);
+
+    document.querySelector('i.wi').className = weatherIcons[conditions];
 }
 
 main();
