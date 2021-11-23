@@ -1,11 +1,18 @@
 body {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   text-align: center;
+  color: #fff;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+
   height: 100vh;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  background-position: center;
+  background-size: cover;
+
 }
 
 h1 {
@@ -23,4 +30,22 @@ h2 {
 
 .tooltip {
   display: none;
+}
+
+.clear {
+  background-image: url('https://images.freeimages.com/images/large-previews/2f6/swept-sky-1406631.jpg');
+}
+
+
+.clouds {
+  background-image: url('https://cdn.wallpapersafari.com/17/7/36b14L.jpg');
+}
+
+.rain {
+  background-image: url('https://cdn.wallpapersafari.com/37/97/4xqpyD.jpg');
+}
+
+.snow {
+  background-image: url('https://cdn.wallpapersafari.com/79/29/Co4sZl.jpg');
+  color: #000;
 }
