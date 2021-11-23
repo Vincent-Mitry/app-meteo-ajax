@@ -17,6 +17,7 @@ body {
 
 h1 {
   font-size: 3em;
+  position: relative;
 }
 
 i.wi {
@@ -29,7 +30,21 @@ h2 {
 }
 
 .tooltip {
-  display: none;
+  opacity: 0;
+  position: absolute;
+  top: 0px;
+  left: 10px;
+  color: #fff;
+  background-color: #222;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 12px;
+  transition: opacity .3s, top .5s;
+}
+
+h1:hover .tooltip {
+  top: -40px;
+  opacity: 1;
 }
 
 .clear {
@@ -45,7 +60,17 @@ h2 {
   background-image: url('https://cdn.wallpapersafari.com/37/97/4xqpyD.jpg');
 }
 
+.drizzle {
+  background-image: url('https://c1.wallpaperflare.com/preview/776/361/136/rain-drops-drizzle-wet.jpg');
+  color: #000;
+}
+
 .snow {
   background-image: url('https://cdn.wallpapersafari.com/79/29/Co4sZl.jpg');
+  color: #000;
+}
+
+.mist {
+  background-image: url('https://c0.wallpaperflare.com/preview/825/154/360/fog-weather-nature-grey.jpg');
   color: #000;
 }
